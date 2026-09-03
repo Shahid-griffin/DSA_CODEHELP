@@ -1,4 +1,24 @@
+
+
 /*
+Approach — Reorganize String
+First, I count the frequency of every character using a hash[26] array.
+Then I find the character having the maximum frequency, because this character has the highest chance of being adjacent to the same character.
+Before arranging anything, we need to make sure that this maximum-frequency character can actually be placed without putting two same characters together.
+I place the most frequent character at alternate positions: 0, 2, 4, 6...
+I do this because alternate positions give the maximum possible gap between identical characters.
+If I still have some occurrences of the maximum character left after reaching the end of the string, then it is impossible to arrange the string, so I return "".
+Once the most frequent character is placed, I set its frequency to 0 because all its occurrences have been handled.
+Now I take the remaining characters one by one and place them in the remaining alternate positions.
+When I reach the end of the even positions, I start again from index 1, which gives positions like 1, 3, 5, 7....
+Finally, if all characters are placed successfully, I return the reorganized string.
+Important intuition
+
+The main idea is:
+
+Place the most frequent character first at alternate positions, then fill the remaining positions with other characters.
+
+
 767 leetcode
 problem to arrange s in such a way that no 2 element can be arrange together
 //approch 
